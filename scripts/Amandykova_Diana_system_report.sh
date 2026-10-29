@@ -13,11 +13,12 @@ echo "--- OS and kernel ---"
 uname -a
 echo ""
 echo "--- CPU ---"
-lscpu | grep "Model name"
-echo "CPU cores: $(nproc)"
+echo "CPU: $(sysctl -n machdep.cpu.brand_string)"
+echo "CPU cores: $(sysctl -n hw.ncpu)"
 echo ""
 echo "--- Memory ---"
-free -h
+echo "Total memory: $(( $(sysctl -n hw.memsize) / 1024 / 1024 / 1024 )) GB"
+vm_stat | head -5
 echo ""
 echo "--- Disk usage ---"
 df -h
