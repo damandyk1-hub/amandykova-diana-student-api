@@ -20,3 +20,5 @@ App: http://localhost:8080/students
 - PUT /students/{id} - update
 - DELETE /students/{id} - delete
 - GET /students/author - shows author name
+
+Change by Amandykova Diana: DELETE now returns a message instead of empty body.
