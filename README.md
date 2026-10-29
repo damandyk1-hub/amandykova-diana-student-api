@@ -1,4 +1,4 @@
-# Student API
+# Student API - documentation by Amandykova Diana
 
 Author: Amandykova Diana
 
