@@ -1,4 +1,4 @@
-# Student API - main version by Amandykova Diana
+# Student API - Amandykova Diana
 
 Author: Amandykova Diana
 
