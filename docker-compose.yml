@@ -1,0 +1,41 @@
+name: amandykova-diana-student-api
+
+services:
+  db:
+    image: postgres:16
+    container_name: amandykova-diana-db
+    environment:
+      POSTGRES_DB: studentdb
+      POSTGRES_USER: student
+      POSTGRES_PASSWORD: student123
+    volumes:
+      - diana-pgdata:/var/lib/postgresql/data
+    networks:
+      - diana-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U student -d studentdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    image: amandykova-diana-student-api:v1.0-amandykova-diana
+    container_name: amandykova-diana-app
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/studentdb
+      DB_USER: student
+      DB_PASSWORD: student123
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - diana-net
+
+volumes:
+  diana-pgdata:
+
+networks:
+  diana-net:
