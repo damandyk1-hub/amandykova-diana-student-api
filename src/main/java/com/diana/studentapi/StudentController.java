@@ -53,11 +53,11 @@ public class StudentController {
 
     // DELETE
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public ResponseEntity<String> delete(@PathVariable Long id) {
         if (!repository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
         repository.deleteById(id);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("Student " + id + " deleted by Amandykova Diana");
     }
 }
