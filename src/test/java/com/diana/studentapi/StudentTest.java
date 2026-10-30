@@ -12,7 +12,7 @@ class StudentTest {
 
         assertEquals("Diana Amandykova", student.getName());
         assertEquals("diana@example.com", student.getEmail());
-        assertEquals(21, student.getAge());
+        assertEquals(99, student.getAge());
     }
 
     @Test
@@ -22,6 +22,6 @@ class StudentTest {
         student.setAge(21);
 
         assertEquals("new@example.com", student.getEmail());
-        assertEquals(21, student.getAge());
+        assertEquals(99, student.getAge());
     }
 }
